@@ -10,6 +10,13 @@ program
 program.parse();
 
 const options = program.opts();
-if (options["new=dir"] != undefined && options["new=dir"] !== true) {
-  makeDir(options["new=dir"]);
+
+if (options["new=dir"]) {
+  if (options["new=dir"] !== true) {
+    // call makeDir functions with [path] value
+    makeDir(options["new=dir"]);
+  } else {
+    console.error("Please enter [path]");
+    program.help();
+  }
 }
