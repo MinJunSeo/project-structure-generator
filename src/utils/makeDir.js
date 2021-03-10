@@ -5,7 +5,7 @@ const makeDir = (dirPath) => {
     return console.error("It has already created");
   }
   
-  fs.mkdirSync(dirPath);
+  fs.mkdirSync(dirPath, { recursive: true });
 };
 
 module.exports = makeDir;
