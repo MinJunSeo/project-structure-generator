@@ -2,13 +2,14 @@ const program = require("commander");
 const { makeDir } = require("./utils");
 
 program
-  .version("0.0.1", "-v, --version")
-  .usage("[option]");
+  .version("0.0.1", "-v, --version");
 
 program
-  .arguments("<path>")
-  .option("-n=dir, --new=dir", "Make new directory")
-  .action((path) => {
-    makeDir(path);
-  })
-  .parse(process.argv);
+  .option("-n=dir, --new=dir [path]", "Make new directory");
+
+program.parse();
+
+const options = program.opts();
+if (options["new=dir"] != undefined && options["new=dir"] !== true) {
+  makeDir(options["new=dir"]);
+}
