@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MinJunSeo/project-structure-generator/issues"
   },
-  "homepage": "https://github.com/MinJunSeo/project-structure-generator#readme"
+  "homepage": "https://github.com/MinJunSeo/project-structure-generator#readme",
+  "dependencies": {
+    "commander": "^7.1.0"
+  }
 }
