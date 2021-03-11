@@ -1,5 +1,7 @@
-const makeDir = require('./makeDir');
+const makeDir = require("./makeDir");
+const makeFile = require("./makeFile");
 
 module.exports = {
-  makeDir
+  makeDir,
+  makeFile
 };
