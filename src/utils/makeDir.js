@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const makeDir = (dirPath) => {
   if (fs.existsSync(dirPath)){
-    return console.error("It has already created");
+    return console.error("The directory has already created");
   }
   
   fs.mkdirSync(dirPath, { recursive: true });
