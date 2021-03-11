@@ -13,4 +13,6 @@ const options = program.opts();
 
 if (options["new=dir"]) {
   makeDir(options["new=dir"]);
+} else {
+  program.help({ error: true });
 }
