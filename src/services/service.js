@@ -12,19 +12,32 @@ for (const data of readFile(__dirname + "/sample.txt").split("\r\n")) {
   });
 }
 
-const getParent = (index, name) => {
-  const indention = name.split(' ').length - 1;
+const tree = new Tree(rootDir);
+
+const getParent = (index, data) => {
+  const indention = data.indention;
 
   if (!indention) {
     return rootDir;
   }
 
   while (index - 1 >= 0) {
-    if (content[index - 1].split(' ').length - 1 === indention - 2) {
-      return content[index - 1].replace(/ /g, '');
+    if (content[index - 1].indention === indention - 2) {
+      return content[index - 1].name;
     }
     index -= 1;
   }
 
-  throw new Error("규칙에 올바르게 작성되지 않은 파일입니다.");
+  throw new Error("규칙에 맞게 작성된 파일이 아닙니다.");
 };
+
+for (let i = 0; i < content.length; i++) {
+  tree.add(content[i].name, getParent(i, content[i]), tree.traverseDF);
+}
+
+tree.traverseBF((node) => {
+  console.log(`저는 ${node.data} 입니다.`);
+  if (node.parent) {
+    console.log(`저의 부모는 ${node.parent.data} 입니다.`);
+  }
+});
