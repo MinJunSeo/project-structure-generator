@@ -1,4 +1,4 @@
-const { readFile } = require("../utils");
+const { readFile, makeDir, makeFile } = require("../utils");
 const { Tree } = require("../dataStructure");
 const path = require("path");
 
@@ -35,9 +35,33 @@ for (let i = 0; i < content.length; i++) {
   tree.add(content[i].name, getParent(i, content[i]), tree.traverseDF);
 }
 
+const getFullPath = (node) => {
+  let fullPath = node.data;
+
+  while (true) {
+    node = node.parent;
+    if (!node) {
+      break;
+    }
+    
+    if (fullPath[0] !== '/') {
+      fullPath = node.data + '/' + fullPath;
+    } else {
+      fullPath = node.data + fullPath;
+    }
+  }
+
+  return fullPath;
+};
+
 tree.traverseBF((node) => {
-  console.log(`저는 ${node.data} 입니다.`);
+  const fullPath = getFullPath(node);
+
   if (node.parent) {
-    console.log(`저의 부모는 ${node.parent.data} 입니다.`);
+    if (node.data[0] !== '/') {
+      makeFile(fullPath);
+    } else {
+      makeDir(fullPath);
+    }
   }
 });
