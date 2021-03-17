@@ -1,67 +1,81 @@
 const { readFile, makeDir, makeFile } = require("../utils");
 const { Tree } = require("../dataStructure");
-const path = require("path");
+const { NotAlrightFileForm } = require("../exceptions");
 
-const rootDir = path.resolve(__dirname, "../../");
-
-const content = [];
-for (const data of readFile(__dirname + "/sample.txt").split("\r\n")) {
-  content.push({
-    indention: data.split(' ').length - 1,
-    name: data.replace(/ /g, '')
-  });
-}
-
-const tree = new Tree(rootDir);
-
-const getParent = (index, data) => {
-  const indention = data.indention;
-
-  if (!indention) {
-    return rootDir;
+class ProjectStructureGeneratorService {
+  constructor(rootDir) {
+    this._rootDir = rootDir;
+    this._tree = new Tree(rootDir);
   }
 
-  while (index - 1 >= 0) {
-    if (content[index - 1].indention === indention - 2) {
-      return content[index - 1].name;
+  initContent(path) {
+    this._content = [];
+    for (const data of readFile(path).split("\r\n")) {
+      this._content.push({
+        indention: data.split(' ').length - 1,
+        name: data.replace(/ /g, '')
+      });
     }
-    index -= 1;
   }
 
-  throw new Error("규칙에 맞게 작성된 파일이 아닙니다.");
-};
-
-for (let i = 0; i < content.length; i++) {
-  tree.add(content[i].name, getParent(i, content[i]), tree.traverseDF);
-}
-
-const getFullPath = (node) => {
-  let fullPath = node.data;
-
-  while (true) {
-    node = node.parent;
-    if (!node) {
-      break;
+  initTree() {
+    for (let i = 0; i < this._content.length; i++) {
+      this._tree.add(this._content[i].name, this.getParent(i, this._content[i]), this._tree.traverseDF);
     }
+  }
+
+  getParent(index, data) {
+    const indention = data.indention;
+
+    if (!indention) {
+      return this._rootDir;
+    }
+  
+    while (index - 1 >= 0) {
+      if (this._content[index - 1].indention === indention - 2) {
+        return this._content[index - 1].name;
+      }
+      index -= 1;
+    }
+  
+    throw NotAlrightFileForm;
+  }
+
+  getFullPath(node) {
+    let fullPath = node.data;
+
+    while (true) {
+      node = node.parent;
+      if (!node) {
+        break;
+      }
+
+      if (fullPath[0] !== '/') {
+        fullPath = node.data + '/' + fullPath;
+      } else {
+        fullPath = node.data + fullPath;
+      }
+    }
+
+    return fullPath;
+  }
+
+  generateProjectStructure(path) {
+    this.initContent(path);
+    this.initTree();
+
+    this._tree.traverseBF((node) => {
+      const fullPath = this.getFullPath(node);
     
-    if (fullPath[0] !== '/') {
-      fullPath = node.data + '/' + fullPath;
-    } else {
-      fullPath = node.data + fullPath;
-    }
+      if (node.parent) {
+        if (node.data[0] !== '/') {
+          makeFile(fullPath);
+        } else {
+          makeDir(fullPath);
+        }
+      }
+    });
   }
+}
 
-  return fullPath;
-};
-
-tree.traverseBF((node) => {
-  const fullPath = getFullPath(node);
-
-  if (node.parent) {
-    if (node.data[0] !== '/') {
-      makeFile(fullPath);
-    } else {
-      makeDir(fullPath);
-    }
-  }
-});
+module.exports = ProjectStructureGeneratorService;
