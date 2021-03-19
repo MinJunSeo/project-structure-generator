@@ -3,14 +3,14 @@ const { Tree } = require("../dataStructure");
 const { NotAlrightFileForm } = require("../exceptions");
 
 class ProjectStructureGeneratorService {
-  constructor(rootDir, planPath) {
+  constructor(rootDir) {
     this._rootDir = rootDir;
     this._plan = [];
     this._tree = new Tree(this._rootDir);
   }
 
-  generateProjectStructure(path) {
-    this.initContent(path);
+  generateProjectStructure(planPath) {
+    this.initContent(planPath);
     this.initTree();
 
     this._tree.traverseBF((node) => {
