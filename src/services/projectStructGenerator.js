@@ -66,7 +66,7 @@ class ProjectStructureGeneratorService {
     if (filename.split('.').pop() != "txt") {
       throw NotAlrightFileForm;
     }
-    return this._rootDir + '/' + planPath;
+    return this._rootDir + '/' + filename;
   }
 
   _initPlan(filename) {
