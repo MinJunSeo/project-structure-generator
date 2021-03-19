@@ -1,7 +1,7 @@
 const program = require("commander");
 
 const { AlreadyServiceInit } = require("../exceptions");
-const { makeDir, makeFile } = require("../utils");
+const { makeDir, makeFile, readFile, writeFile } = require("../utils");
 
 const ProjectStructureGeneratorService = require("./projectStructGenerator");
 let projectStructureGeneratorService = null;
@@ -19,8 +19,11 @@ program
     }
 
     projectStructureGeneratorService = new ProjectStructureGeneratorService(process.cwd());
-    makeDir(process.cwd() + "/.projectStructure");
-    makeFile(process.cwd() + "/.projectStructure/README.TXT");
+    const path = process.cwd() + "/.projectStructure";
+    makeDir(path);
+    makeFile(path + "/README.txt");
+    const data = readFile(__dirname + "/README.txt");
+    writeFile(path + "/README.txt", data);
   });
 
 module.exports = program;
