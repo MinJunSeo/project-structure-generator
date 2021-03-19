@@ -1,12 +1,12 @@
-const fs = require("fs");
+const { mkdirSync } = require("fs");
 const { DirectoryIsExist } = require("../exceptions");
+const isExists = require("./isExists");
 
 const makeDir = (dirPath) => {
-  if (fs.existsSync(dirPath)){
+  if (isExists(dirPath)) {
     throw DirectoryIsExist;
   }
-  
-  fs.mkdirSync(dirPath, { recursive: true });
+  mkdirSync(dirPath);
 };
 
 module.exports = makeDir;
