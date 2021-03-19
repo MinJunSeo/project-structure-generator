@@ -62,7 +62,15 @@ class ProjectStructureGeneratorService {
     throw NotAlrightFileForm;
   }
 
-  _initPlan(planPath) {
+  _getPlanPath(filename) {
+    if (filename.split('.').pop() != "txt") {
+      throw NotAlrightFileForm;
+    }
+    return this._rootDir + '/' + planPath;
+  }
+
+  _initPlan(filename) {
+    const planPath = this._getPlanPath(filename);
     for (const data of readFile(planPath).split("\r\n")) {
       this._plan.push({
         indention: data.split(' ').length - 1,
