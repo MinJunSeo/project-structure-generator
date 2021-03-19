@@ -27,7 +27,18 @@ program
     makeDir(servicePath);
     makeFile(servicePath + "/README.txt");
     const data = readFile(__dirname + "/README.txt");
-    writeFile(path + "/README.txt", data);
+    writeFile(servicePath + "/README.txt", data);
   });
 
+program
+  .command("project-generator <filename>")
+  .description("project structure generator")
+  .action((filename) => {
+    if (!isExists(servicePath)) {
+      throw NotInitService;
+    }
+    
+    const service = new ProjectStructureGeneratorService();
+    service.generateProjectStructure(filename);
+  });
 module.exports = program;
