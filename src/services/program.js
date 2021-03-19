@@ -1,10 +1,16 @@
 const program = require("commander");
 
-const { AlreadyServiceInit, NotInitService } = require("../exceptions");
-const { makeDir, makeFile, readFile, writeFile } = require("../utils");
-
 const ProjectStructureGeneratorService = require("./projectStructGenerator");
-let projectStructureGeneratorService = null;
+const { AlreadyServiceInit, NotInitService } = require("../exceptions");
+const {
+  makeDir,
+  makeFile,
+  readFile,
+  writeFile,
+  isExists
+} = require("../utils");
+
+const servicePath = process.cwd() + "/.projectStructures";
 
 program
   .usage("<command> [option]")
@@ -14,26 +20,14 @@ program
   .command("init")
   .description("Project Structure Generator service init.")
   .action(() => {
-    if (projectStructureGeneratorService) {
+    if (isExists(servicePath)) {
       throw AlreadyServiceInit;
     }
 
-    projectStructureGeneratorService = new ProjectStructureGeneratorService(process.cwd());
-    const path = process.cwd() + "/.projectStructure";
-    makeDir(path);
-    makeFile(path + "/README.txt");
+    makeDir(servicePath);
+    makeFile(servicePath + "/README.txt");
     const data = readFile(__dirname + "/README.txt");
     writeFile(path + "/README.txt", data);
-  });
-
-program
-  .command("project-generator <filename>")
-  .description("project structure generator")
-  .action((filename) => {
-    if (!projectStructureGeneratorService) {
-      throw NotInitService;
-    }
-    projectStructureGeneratorService.generateProjectStructure(filename);
   });
 
 module.exports = program;
