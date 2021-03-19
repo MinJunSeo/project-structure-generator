@@ -1,6 +1,6 @@
 const program = require("commander");
 
-const { AlreadyServiceInit } = require("../exceptions");
+const { AlreadyServiceInit, NotInitService } = require("../exceptions");
 const { makeDir, makeFile, readFile, writeFile } = require("../utils");
 
 const ProjectStructureGeneratorService = require("./projectStructGenerator");
@@ -24,6 +24,16 @@ program
     makeFile(path + "/README.txt");
     const data = readFile(__dirname + "/README.txt");
     writeFile(path + "/README.txt", data);
+  });
+
+program
+  .command("project-generator <filename>")
+  .description("project structure generator")
+  .action((filename) => {
+    if (!projectStructureGeneratorService) {
+      throw NotInitService;
+    }
+    projectStructureGeneratorService.generateProjectStructure(filename);
   });
 
 module.exports = program;
