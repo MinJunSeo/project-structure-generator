@@ -80,8 +80,8 @@ class ProjectStructureGeneratorService {
   };
 
   _initTree() {
-    for (let i = 0; i < this._content.length; i++) {
-      this._tree.add(this._content[i].name, this._getParent(i, this._content[i]), this._tree.traverseDF);
+    for (let i = 0; i < this._plan.length; i++) {
+      this._tree.add(this._plan[i].name, this._getParent(i, this._plan[i]), this._tree.traverseDF);
     }
   }
 }
