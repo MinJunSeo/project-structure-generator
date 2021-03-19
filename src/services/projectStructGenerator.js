@@ -74,7 +74,7 @@ class ProjectStructureGeneratorService {
     for (const data of readFile(planPath).split("\r\n")) {
       this._plan.push({
         indention: data.split(' ').length - 1,
-        name: data.relace(/ /g, '')
+        name: data.replace(/ /g, '')
       });
     }
   };
