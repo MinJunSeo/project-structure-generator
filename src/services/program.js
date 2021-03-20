@@ -49,4 +49,11 @@ program
     makeDir(path);
   });
 
+program
+  .command("touch <filename>")
+  .description("make new empty file")
+  .action((filename) => {
+    makeFile(filename);
+  });
+
 module.exports = program;
