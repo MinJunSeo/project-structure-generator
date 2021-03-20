@@ -41,4 +41,12 @@ program
     const service = new ProjectStructureGeneratorService();
     service.generateProjectStructure(filename);
   });
+
+program
+  .command("mkdir <path>")
+  .description("make new directory")
+  .action((path) => {
+    makeDir(path);
+  });
+
 module.exports = program;
