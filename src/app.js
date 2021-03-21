@@ -1,9 +1,9 @@
 const { program } = require("./services");
+
+program
+.action(() => {
+  console.error("해당 명령어를 찾을 수 없습니다.");
+  program.help();
+});
+
 program.parse();
-
-
-const command = process.argv[2];
-
-if (!command) {
-  program.help({ error: true });
-}
