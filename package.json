@@ -18,6 +18,7 @@
   "homepage": "https://github.com/MinJunSeo/project-structure-generator#readme",
   "dependencies": {
     "chalk": "^4.1.0",
-    "commander": "^7.1.0"
+    "commander": "^7.1.0",
+    "progress": "^2.0.3"
   }
 }
