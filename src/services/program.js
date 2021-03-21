@@ -13,7 +13,7 @@ const {
 const servicePath = process.cwd() + "/.projectStructures";
 
 program
-  .usage("<command> [option]")
+  .usage("<command>")
   .version("1.0.0", "-v, --version")
 
 program
