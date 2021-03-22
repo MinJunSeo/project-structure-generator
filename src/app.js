@@ -10,5 +10,5 @@ program
 try {
   program.parse();
 } catch (err) {
-  console.error(chalk.red(err));
+  console.error(chalk.red(`Error: ${err}`));
 }
