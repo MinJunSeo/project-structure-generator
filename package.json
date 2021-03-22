@@ -2,10 +2,11 @@
   "name": "project-structure-generator",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "./lib/src/app",
   "scripts": {
     "start": "node src/app"
   },
+  "bin": "bin/projectGenerator.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MinJunSeo/project-structure-generator.git"
