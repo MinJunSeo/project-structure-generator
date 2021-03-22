@@ -1,4 +1,4 @@
-const { program } = require("./services");
+const program = require("./services");
 const chalk = require("chalk");
 
 program
