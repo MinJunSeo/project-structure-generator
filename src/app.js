@@ -1,9 +1,14 @@
 const { program } = require("./services");
+const chalk = require("chalk");
 
 program
 .action(() => {
-  console.error("해당 명령어를 찾을 수 없습니다.");
+  console.error(chalk.red("command not found"));
   program.help();
 });
 
-program.parse();
+try {
+  program.parse();
+} catch (err) {
+  console.error(chalk.red(err));
+}
