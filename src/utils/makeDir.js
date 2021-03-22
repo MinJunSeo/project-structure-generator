@@ -1,10 +1,10 @@
 const { mkdirSync } = require("fs");
-const { DirectoryIsExist } = require("../exceptions");
+const { DirectoryIsExists } = require("../exceptions");
 const isExists = require("./isExists");
 
 const makeDir = (dirPath) => {
   if (isExists(dirPath)) {
-    throw DirectoryIsExist;
+    throw DirectoryIsExists;
   }
   mkdirSync(dirPath);
 };
