@@ -7,7 +7,8 @@ const {
   makeFile,
   readFile,
   writeFile,
-  isExists
+  isExists,
+  printSuccessMessage
 } = require("../utils");
 
 const servicePath = process.cwd() + "/.projectStructures";
@@ -28,6 +29,8 @@ program
     makeFile(servicePath + "/README.txt");
     const data = readFile(__dirname + "/README.txt");
     writeFile(servicePath + "/README.txt", data);
+
+    printSuccessMessage("Success: init project-generator service");
   });
 
 program
@@ -37,7 +40,7 @@ program
     if (!isExists(servicePath)) {
       throw NotInitService;
     }
-    
+
     const service = new ProjectStructureGeneratorService();
     service.generateProjectStructure(filename);
   });
