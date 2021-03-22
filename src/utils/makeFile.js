@@ -1,11 +1,13 @@
 const fs = require("fs");
 const path = require("path");
 
+const { FileIsExists } = require("../exceptions");
+
 const makeFile = (filename) => {
   const name = path.dirname(filename) + '/' + path.basename(filename);
 
   if (fs.existsSync(name)) {
-    return console.error(`${path.basename(name)} file is already creaetd`);
+    throw FileIsExists;
   }
 
   fs.appendFileSync(name);
