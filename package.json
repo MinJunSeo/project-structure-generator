@@ -2,12 +2,9 @@
   "name": "project-structure-generator",
   "version": "1.0.0",
   "description": "",
-  "main": "./lib/src/app",
-  "scripts": {
-    "start": "node src/app"
-  },
+  "main": "./lib/src/app.js",
   "bin": {
-    "psg": "bin bin/projectGenerator.js"
+    "psg": "bin/projectGenerator.js"
   },
   "preferGlobal": true,
   "repository": {
