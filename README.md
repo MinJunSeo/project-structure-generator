@@ -70,7 +70,7 @@ Then, create "configs" directory in "PSG\src"
 
 `psg touch <filename>`
 
-If you pass filename, will create file in current working directory.
+If you pass filename, will create empty file in current working directory.
 
 ```
 For example)
@@ -79,7 +79,7 @@ PS PSG\src > touch app.js
 
 Then, create "app.js" file in "PSG\src".
 
-If you passed path with filename, then create file in specified path.
+If you passed path with filename, then create empty file in specified path.
 
 ```
 For example)
