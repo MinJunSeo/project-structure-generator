@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node src/app"
   },
-  "bin": "bin/projectGenerator.js",
+  "bin": {
+    "psg": "bin bin/projectGenerator.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MinJunSeo/project-structure-generator.git"
