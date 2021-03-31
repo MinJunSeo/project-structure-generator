@@ -8,7 +8,7 @@ psgApp
   .version("1.0.0", "-v, --version");
 
 psgApp
-  .action(printCommandNotFound(psgApp));
+  .action(() => printCommandNotFound(psgApp));
 
 try {
   psgApp.parse();
