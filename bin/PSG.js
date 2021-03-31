@@ -10,7 +10,7 @@ psgApp
 psgApp
   .action(() => {
     printExceptionMessage("Error: Command not found");
-    psgAPp.help();
+    psgApp.help();
   });
 
 try {
