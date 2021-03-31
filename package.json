@@ -2,7 +2,8 @@
   "name": "project-structure-generator",
   "version": "1.0.0",
   "bin": {
-    "psg": "bin/PSG.js"
+    "psg": "bin/PSG.js",
+    "touch": "bin/touch.js"
   },
   "preferGlobal": true,
   "repository": {
