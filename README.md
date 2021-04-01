@@ -9,7 +9,8 @@
 
 ## Before using service
 
-If you want to use project structure generate service, you must execute this command.
+If you want to use PSG service, you must execute this command.  
+But, you can use any command with no enter this command other than `PSG make <filename>` command.
 
 `psg init`
 
@@ -47,28 +48,15 @@ PSG supports serveral commands, for your project and manage file or directory.
 
 > Note: You must execute psg init before executing this command.
 
-`psg project-generate <filename>`
+`psg make <filename>`
 
 If you pass filename that written at ./projectStructures, will generate for directory and file as is stated here.
 
 If you already created file or directory stated, will be ignore.
 
-### mkdir
-
-`psg mkdir <path>`
-
-If you pass path that created new directory, will create directory that name
-
-```
-For Example)
-PS PSG\src > psg mkdir ./configs 
-```
-
-Then, create "configs" directory in "PSG\src"
-
 ### touch
 
-`psg touch <filename>`
+`touch <filename>`
 
 If you pass filename, will create empty file in current working directory.
 
