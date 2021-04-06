@@ -1,16 +1,18 @@
 #!/usr/bin/env node
 
 const { touchApp } = require("../lib/src/services");
-const { printCommandNotFound, printExceptionMessage } = require("../lib/src/utils");
+const { printExceptionMessage } = require("../lib/src/utils");
 
 touchApp
+  .usage("<filename>")
   .version("1.0.0", "-v, --version");
 
-touchApp
-  .action(() => printCommandNotFound(touchApp));
-
 try {
-  touchApp.parse();
-} catch (err) {
-  printExceptionMessage(`Error: ${err}`);
+  if (!process.argv.slice(2).length) {
+    throw new Error("Missing required argument 'filename'");
+  }
+
+  touchApp.parse(process.argv);
+} catch (error) {
+  printExceptionMessage(`Err: ${error.message}`);
 }
