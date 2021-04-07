@@ -35,7 +35,7 @@ ex) sample.txt, projectStructre1.txt, ...
 ```
 ex)
 /src
-  /image.js
+  image.js
 
 Then, index.js is located in src directory.
 ```
