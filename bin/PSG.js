@@ -12,6 +12,6 @@ psgApp
 
 try {
   psgApp.parse();
-} catch (err) {
-  printExceptionMessage(`Error: ${err}`);
+} catch (error) {
+  printExceptionMessage(error.message);
 }
