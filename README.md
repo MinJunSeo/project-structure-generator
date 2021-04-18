@@ -3,9 +3,8 @@
 > A standalone toolkit for starting project.
 
 ## Installation
-### Windows
 
-`npm i -g`
+I'm sorry, but this project was not released.
 
 ## Before using service
 
@@ -107,3 +106,7 @@ Commands:
   mkdir <path>                  make new directory
   touch <filename>              make new empty file
 ```
+
+### Develop Diary and Review
+
+- velog: <a href="https://velog.io/@shin0805/series/PSG-%ED%9A%8C%EA%B3%A0%EB%A1%9D" target="_blank">PSG 회고록</a>
