@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 
 const { psgApp } = require("../lib/src/services")
-const { printCommandNotFound, printExceptionMessage } = require("../lib/src/utils");
+const { MessagePrinter } = require("../lib/src/utils");
 
 psgApp
   .usage("command")
   .version("1.0.0", "-v, --version");
 
 psgApp
-  .action(() => printCommandNotFound(psgApp));
+  .action(() => MessagePrinter.NotFoundCommand(psgApp));
 
 try {
   psgApp.parse();
 } catch (error) {
-  printExceptionMessage(error.message);
+  MessagePrinter.Exception(error.message);
 }
