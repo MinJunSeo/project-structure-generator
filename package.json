@@ -5,6 +5,9 @@
     "psg": "bin/PSG.js",
     "touch": "bin/touch.js"
   },
+  "scripts": {
+    "test": "jest"
+  },
   "preferGlobal": true,
   "repository": {
     "type": "git",
