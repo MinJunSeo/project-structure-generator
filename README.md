@@ -4,7 +4,7 @@
 
 ## Installation
 
-I'm sorry, but this project was not released.
+`npm i -g project-structure-generator`
 
 ## Before using service
 
