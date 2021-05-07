@@ -3,6 +3,12 @@ import fs from "fs";
 
 describe("touch - make an empty file", () => {
   describe("filename === 'a.txt'", () => {
+    beforeAll(() => {
+      if (fs.existsSync(__dirname + "/a.txt")) {
+        fs.unlinkSync(__dirname + "/a.txt");
+      }
+    })
+    
     afterAll(() => {
       if (fs.existsSync(__dirname + "/a.txt")) {
         fs.unlinkSync(__dirname + "/a.txt");
