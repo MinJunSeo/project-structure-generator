@@ -84,6 +84,13 @@ C:\PSG\src> psg touch .env .gitignore README.md
 
 Then, create ".env", ".gitignore", "README.md" file in "C:\PSG\src".
 
+### cat
+
+`cat <filenames>`
+
+If you pass filename, will show content written.  
+Also, you can pass multiple file names.
+
 ## Available Options
 
 PSG supports serveral options. But these options must be use alone, not use together command.
