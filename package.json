@@ -4,7 +4,8 @@
   "description": "A CLI program for Windows OS",
   "bin": {
     "psg": "bin/PSG.js",
-    "touch": "bin/touch.js"
+    "touch": "bin/touch.js",
+    "cat": "bin/cat.js"
   },
   "scripts": {
     "test": "jest"
