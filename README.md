@@ -81,32 +81,17 @@ PSG supports serveral options. But these options must be use alone, not use toge
 
 ### -v, --version
 
-`psg -v`  
-`psg --version`
+`<service_name> -v`  
+`<service_name> --version`
 
-Show PSG service version
+Show service version
 
 ### -h, --help
 
-`psg -h`
-`psg --help`
+`<service_name> -h`  
+`<service_name> --help`
 
-Show PSG hint like this
-
-```
-Usage: app <command>
-
-Options:
-  -v, --version                 output the version number
-  -h, --help                    display help for command 
-
-Commands:
-  init                          Project Structure Generator service init.
-  project-generator <filename>  project structure generator
-  mkdir <path>                  make new directory
-  touch <filename>              make new empty file
-  cat <filename>
-```
+Show avvaiable options and commands
 
 ### Develop Diary and Review
 
