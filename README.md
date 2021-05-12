@@ -105,6 +105,7 @@ Commands:
   project-generator <filename>  project structure generator
   mkdir <path>                  make new directory
   touch <filename>              make new empty file
+  cat <filename>
 ```
 
 ### Develop Diary and Review
