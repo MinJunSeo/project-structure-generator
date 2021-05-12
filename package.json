@@ -1,6 +1,6 @@
 {
   "name": "project-structure-generator",
-  "version": "1.0.0-Beta",
+  "version": "1.0.1-Beta",
   "description": "A CLI program for Windows OS",
   "bin": {
     "psg": "bin/PSG.js",
