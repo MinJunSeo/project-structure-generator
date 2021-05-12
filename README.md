@@ -55,7 +55,7 @@ If you already created file or directory stated, will be ignore.
 
 ### touch
 
-`touch <filename>`
+`touch <filenames>`
 
 If you pass filename, will create empty file in current working directory.
 
@@ -74,6 +74,15 @@ C:\PSG\src > psg touch ../.env
 ```
 
 Then, create ".env" file in "PSG".
+
+Also, you can pass multiple file names. In that case, a corresponding blank file will be created.  
+  
+```
+For example)
+C:\PSG\src> psg touch .env .gitignore README.md 
+```
+
+Then, create ".env", ".gitignore", "README.md" file in "C:\PSG\src".
 
 ## Available Options
 
