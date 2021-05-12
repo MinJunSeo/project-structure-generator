@@ -61,7 +61,7 @@ If you pass filename, will create empty file in current working directory.
 
 ```
 For example)
-PS PSG\src > touch app.js
+C:\PSG\src > touch app.js
 ```
 
 Then, create "app.js" file in "PSG\src".
@@ -70,7 +70,7 @@ If you passed path with filename, then create empty file in specified path.
 
 ```
 For example)
-PS PSG\src > psg touch ../.env
+C:\PSG\src > psg touch ../.env
 ```
 
 Then, create ".env" file in "PSG".
