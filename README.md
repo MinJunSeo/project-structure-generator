@@ -109,6 +109,34 @@ Show service version
 
 Show avvaiable options and commands
 
-### Develop Diary and Review
+## How to contribute
+### Get code
+1. Clone this repository
+```
+git clone https://github.com/MinJunSeo/project-structure-generator.git
+cd project-structure-generator
+```
+
+2. Install dependencis
+```
+npm i
+```
+
+3. Install this code globally
+```
+npm i -g
+```
+
+Then, you can use commands.
+
+### Code Reivews
+
+All of code require review. You can use GitHub pull requests for this purpose. Consult <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests" target="_blank">GitHub Pull Request Help</a> for more information on using pull requests.
+
+### Bug Report or Suggestions for new function
+
+You can use issues for this purpose. Consult <a href="https://docs.github.com/en/github/managing-your-work-on-github/about-issues" target="_blank">GitHub Issues Help</a> for more information on using issues.
+
+## Develop Diary and Review
 
 - velog: <a href="https://velog.io/@shin0805/series/PSG-%ED%9A%8C%EA%B3%A0%EB%A1%9D" target="_blank">PSG 회고록</a>
