@@ -5,7 +5,8 @@
   "bin": {
     "psg": "bin/PSG.js",
     "touch": "bin/touch.js",
-    "cat": "bin/cat.js"
+    "cat": "bin/cat.js",
+    "kill-server": "bin/killServer.js"
   },
   "scripts": {
     "test": "jest"
