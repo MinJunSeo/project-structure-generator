@@ -91,6 +91,12 @@ Then, create ".env", ".gitignore", "README.md" file in "C:\PSG\src".
 If you pass filename, will show content written.  
 Also, you can pass multiple file names.
 
+### kill-server
+
+`kill-server <port>`
+
+If you pass port server you want to kill use it, will be killed.
+
 ## Available Options
 
 PSG supports serveral options. But these options must be use alone, not use together command.
