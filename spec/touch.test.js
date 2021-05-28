@@ -1,15 +1,9 @@
-import { touchApp } from "../lib/src/services";
 import fs from "fs";
+import { touchApp } from "../lib/src/services";
 
 describe("touch - make an empty file", () => {
   describe("filename === 'a.txt'", () => {
     beforeAll(() => {
-      if (fs.existsSync(__dirname + "/a.txt")) {
-        fs.unlinkSync(__dirname + "/a.txt");
-      }
-    })
-    
-    afterAll(() => {
       if (fs.existsSync(__dirname + "/a.txt")) {
         fs.unlinkSync(__dirname + "/a.txt");
       }
